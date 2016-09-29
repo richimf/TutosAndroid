@@ -1,0 +1,40 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <!---
+         android:showAsAction =
+                Si se está mostrando una action bar,
+                este atributo indica si la opción de menú se mostrará
+                como botón de acción o como parte del menú de overflow.
+
+            ifRoom. Se mostrará como botón de acción sólo si hay espacio disponible.
+
+            withText. Se mostrará el texto de la opción junto al icono
+                      en el caso de que éste se esté mostrando como botón de acción.
+
+            never.  La opción siempre se mostrará como parte del menú de overflow.
+
+            always. La opción siempre se mostrará como botón de acción.
+                    Este valor puede provocar que los elementos se solapen si no hay espacio suficiente para ellos.
+    -->
+
+    <item android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        android:orderInCategory="100"
+        app:showAsAction="never" /> <!-- siempre aparecera en el menu overflow -->
+
+    <item android:id="@+id/action_buscar"
+        android:title="@string/action_buscar"
+        android:icon="@drawable/ic_buscar"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/action_nuevo"
+        android:title="@string/action_nuevo"
+        android:icon="@drawable/ic_nuevo"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom|withText" />  <!--aparece el icono, pero el texto solo si hay espacio -->
+
+</menu>

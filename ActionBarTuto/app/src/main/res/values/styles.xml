@@ -1,0 +1,15 @@
+<resources>
+
+    <!-- Base application theme. Light.DarkActionBar = FondoClaro.BarraOscura-->
+
+    <!-- Light.DarkActionBar utilizara un ActionBar creado por styles y AppCompact,
+        al poner .NoActionBar, no utilizaremos el actionbar creado por Styles
+    -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>  <!-- Color principal de la app -->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item> <!-- Color barra estado generalmente -->
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+</resources>
