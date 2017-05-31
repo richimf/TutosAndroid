@@ -1,0 +1,46 @@
+<!-- ProgressBar with custom progress colors -->
+<ProgressBar
+        android:id="@+id/pbRatingProgress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="12dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_weight="1"
+        android:max="10"
+        android:progress="1"
+        android:progressDrawable="@drawable/progress_item" />
+
+
+<!-- progress_item.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Background of empty progress-->
+    <item android:id="@android:id/background">
+        <shape>
+            <corners android:radius="10dp" />
+            <gradient
+                android:angle="270"
+                android:centerColor="@color/gray_300"
+                android:centerY="1.0"
+                android:endColor="@color/gray_300"
+                android:startColor="@color/gray_300" />
+        </shape>
+    </item>
+
+    <!-- Progress color -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <corners android:radius="10dp" />
+                <gradient
+                    android:angle="270"
+                    android:centerColor="@color/prim_green"
+                    android:centerY="1.0"
+                    android:endColor="@color/prim_green"
+                    android:startColor="@color/prim_green" />
+            </shape>
+        </clip>
+    </item>
+</layer-list>
