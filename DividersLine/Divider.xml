@@ -1,0 +1,14 @@
+ <!-- Dividers -->
+
+  <!-- Setup in styles.xml -->
+    <style name="HorizontalDividerXS">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/leading_xs</item>
+        <item name="android:background">@color/gray</item>
+    </style>
+    
+ <!-- Use in Layout -->
+    <View
+        style="@style/HorizontalDividerXS"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="@dimen/margin_mid" />
