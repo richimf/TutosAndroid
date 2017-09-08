@@ -55,13 +55,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private String reverseString(String output) {
-
-        String tempString = "";
+        String reverse = "";
         for (int i = 1; i <= output.length(); i++) {
-            tempString += output.charAt(output.length() - i);
+            reverse += output.charAt(output.length() - i);
         }
-
-        return tempString;
+        return reverse;
     }
 
     private TwinsNumbers generateSameSizeInputs(String a, String b) {
@@ -88,11 +86,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private String addMissingZeros(int acarreo) {
-        String carry = "";
+        String zeros = "";
         for (int i = 0; i < acarreo; i++) {
-            carry += "0";
+            zeros += "0";
         }
-        return carry;
+        return zeros;
     }
 
     private int getValueFromEditText(EditText editText) {
@@ -104,17 +102,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     //OPERATIONS
-
     private String getExpansion(int base, int value) {
-
         String output = "";
         int q = value;
-
         do {
             output += "" + q % base;
             q = q / base;
         } while (q != 0);
-
         return reverseString(output);
     }
 
@@ -126,10 +120,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int size = a.length();
 
         for (int j = size - 1; j >= 0; j--) {
-
             int valueA = Integer.parseInt("" + a.charAt(j));
             int valueB = Integer.parseInt("" + b.charAt(j));
-
             d = (valueA + valueB + c) / 2;
             s = ((valueA + valueB + c) - (int) (2 * d)) + "" + s;
             c = (int) d;
@@ -257,6 +249,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
         }
-
     }
 }
