@@ -62,21 +62,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return reverse;
     }
 
+    //Completa con 0s al inicio de los numeros en binario
     private TwinsNumbers generateSameSizeInputs(String a, String b) {
-
-        //Both values must have same lenght
-        int aSize = a.length();
-        int bSize = b.length();
-        int missingRange = (aSize - bSize);
-        missingRange = missingRange < 0 ? (-1) * missingRange : missingRange;
-
+        int sizeA = a.length();
+        int sizeB = b.length();
+        int range = (sizeA - sizeB);
         String zeros = "";
-        while (missingRange > 0) {
+
+        range = range < 0 ? (-1) * range : range;
+
+        while (range > 0) {
             zeros += "0";
-            missingRange--;
+            range--;
         }
 
-        if (aSize > bSize) {
+        if (sizeA > sizeB) {
             b = zeros + b;
         } else {
             a = zeros + a;
@@ -85,9 +85,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return new TwinsNumbers(a, b);
     }
 
-    private String addMissingZeros(int acarreo) {
+    //Agregamos 0s al final del numero binario
+    private String addMissingZeros(int carry) {
         String zeros = "";
-        for (int i = 0; i < acarreo; i++) {
+        for (int i = 0; i < carry; i++) {
             zeros += "0";
         }
         return zeros;
@@ -95,9 +96,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private int getValueFromEditText(EditText editText) {
         String value = editText.getText().toString();
-        //Matcher matcher = Pattern.compile("^[0-9]+$").matcher(value);
-        //if (!matcher.find())
-        //Toast.makeText(this, "Valor de entrada invalido", Toast.LENGTH_SHORT).show();
         return value.isEmpty() ? 0 : Integer.parseInt(value);
     }
 
@@ -134,10 +132,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private String multiplication(String a, String b) {
 
-        String productString;
         int acarreo = 0;
         int sizeA = a.length();
         int sizeB = b.length();
+        String productString;
         List<String> multiplicandos = new ArrayList<>();
 
         while (sizeB > 0) {
@@ -165,8 +163,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //hacer suma
         for (int i = 0; i < multiplicandos.size() - 1; i++) {
-            TwinsNumbers twinsNumbers = generateSameSizeInputs(multiplicandos.get(i), multiplicandos.get(i + 1));
-            multiplicandos.set(i + 1, addition(twinsNumbers.getValueA(), twinsNumbers.getValueB()));
+            TwinsNumbers tn = generateSameSizeInputs(multiplicandos.get(i), multiplicandos.get(i + 1));
+            multiplicandos.set(i + 1, addition(tn.getValueA(), tn.getValueB()));
         }
 
         return multiplicandos.get(multiplicandos.size() - 1);
