@@ -16,21 +16,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:hint="Valor 1" />
+            android:hint="Valor 1 (ej. 644)" />
 
         <EditText
             android:id="@+id/etValue2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:hint="Valor 2" />
+            android:hint="Valor 2 (ej. 645)" />
 
         <EditText
             android:id="@+id/etBase"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:hint="Base"
+            android:hint="Base (ej. 3)"
             android:inputType="number" />
 
         <LinearLayout

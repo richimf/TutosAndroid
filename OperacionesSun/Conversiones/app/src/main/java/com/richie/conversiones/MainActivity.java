@@ -176,14 +176,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int r = a < 0 ? (-1) * (a) : a;  //absolute value of 'a'
 
         while (r >= d) {
+            //en el caso que a sea negativo
+            /*if (a < 0 && r > 0) {
+                r = r - d;// d - r;
+                //q = (-1) * (q + 1);
+                q--;
+            }else{
+                r = r - d;
+                q++;
+            }*/
             r = r - d;
             q++;
-
-            //en el caso que a sea negativo
-            if (a < 0 && r > 0) {
-                r = d - r;
-                q = (-1) * (q + 1);
-            }
+        }
+        if(a<0 && r>0){
+            r = d - r;
+            q = (-1) * (q+1);
         }
 
         // (q,r) { q = a div d is the quotient, r = a mod d is the remainder }
@@ -218,8 +225,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (view.getId()) {
             case R.id.btnSumar:
+                int additionValue = valueA + valueB;
                 String result = addition(twinsNumbers.getValueA(), twinsNumbers.getValueB());
-                tvResults.setText("a = " + expansionValueA + "\nb = " + expansionValueB + " \nresult = " + result);
+                tvResults.setText("a = " + expansionValueA + "\nb = " + expansionValueB +
+                        " \nresult = " + result + "\nDec= " + additionValue);
                 break;
             case R.id.btnDivision:
                 if (valueB == 0) {
@@ -236,10 +245,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.btnMultiply:
-                tvResults.setText("Multiplicacion = " + multiplication(twinsNumbers.getValueA(), twinsNumbers.getValueB()));
+                int productValue = valueA * valueB;
+                String productString = "Multiplicación \nBinario= " +
+                        multiplication(twinsNumbers.getValueA(), twinsNumbers.getValueB())
+                        + "\nDecimal = " + productValue;
+                tvResults.setText(productString);
                 break;
             case R.id.btnExponentation:
-                if (base == 0) {
+                if (base == 0 || valueB == 0) {
                     tvResults.setText("Error, ingresa base");
                 } else {
                     String equation = "" + base + "^" + valueA + " mod " + valueB;
